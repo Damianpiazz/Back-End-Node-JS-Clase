@@ -1,159 +1,129 @@
-# Node.js - Clase 4: Objetos, Clases y Operadores Avanzados en JavaScript
-
-¡Bienvenido a la Clase 4 de nuestro curso de Node.js!  
-En esta clase vamos a profundizar en **Objetos, Clases, Operadores Avanzados y módulos**, sentando bases solidas para organizar y manipular datos complejos en JavaScript.
+# Node.JS Clase 4: Objetos, Clases y Operadores Avanzados en JavaScript
 
 ---
 
-## 📑 Indice
-
-1. [Objetos](#objetos)  
-   - Definición y caracteristicas  
-   - Objetos literales y funcionales  
-   - Funciones constructoras  
-   - Creación de instancias  
-
-2. [Clases](#clases)  
-   - Definición y sugar syntax  
-   - Constructor y herencia  
-   - Instanciación de objetos  
-   - Programación orientada a objetos (POO)  
-
-3. [Operadores Avanzados](#operadores-avanzados)  
-   - Destructuring operator  
-   - Spread operator  
-   - Uso en arrays y objetos  
-
-4. [Módulos y gestores de paquetes](#modulos-y-gestores-de-paquetes)  
-   - NPM: instalación, scripts y dependencias  
-   - Inicio de proyecto nuevo  
-   - Módulos nativos y de terceros  
-   - Gestión de rutas con __dirname  
-
-5. [Ejercicios Practicos](#ejercicios-practicos)  
-   - Misión 1: Array de automóviles  
-   - Misión 2: Función con destructuring y filtrado por color  
-
-6. [Recursos Adicionales](#recursos-adicionales)  
-   - Documentación MDN y guías sobre objetos y clases  
+## Índice
+1. Objetos, clases y operadores avanzados  
+   - Objetos: Definición / Características de los objetos / Tipos de objetos  
+   - Clases: Sugar Syntax, similitud con objetos funcionales, método constructor  
+   - Operadores avanzados: Destructuring operator, Spread operator  
+2. Módulos y gestores de paquetes  
+   - Gestores de paquetes: NPM - Instalación de paquetes, creación de scripts, gestión de dependencias  
+   - Inicio de un proyecto nuevo con Node.js y NPM  
+   - Módulos nativos  
+   - Módulos de terceros  
+   - Dirname: Gestión de rutas absolutas y acceso a archivos del servidor  
 
 ---
 
-## 🎯 Objetivos de la Clase
-
-- Comprender y manipular objetos literales y funcionales.  
-- Introducir clases y su sintaxis en JavaScript.  
-- Aplicar destructuring y spread operator para mejorar el código.  
-- Entender la gestión de módulos y paquetes en Node.js.
+## Objetivos de la Clase
+- **Comprender Objetos**: Aprenderemos a crear y manipular objetos literales y funcionales en JavaScript.  
+- **Introducir Clases**: Exploraremos la sintaxis y uso de clases en JavaScript.  
+- **Operadores Avanzados**: Estudiaremos el destructuring y spread operator para mejorar nuestro código.  
 
 ---
 
-## 🗂 Objetos
+## Objetos
 
-Los objetos son variables especiales que contienen otras variables como propiedades (clave/valor).  
-Permiten organizar datos relacionados y métodos dentro de la misma estructura.
+### Definición
+Los objetos son variables especiales que contienen más variables en su interior.
 
-**Características:**
-- Pares clave/valor únicos  
-- Dinamismo: se pueden modificar y expandir en tiempo de ejecución  
-- Métodos: funciones asociadas como propiedades  
+### Estructura
+Cada propiedad o elemento es un par **clave/valor** separado de otro a través de una coma.
 
-**Tipos de objetos:**
-- Literales: `{ clave: valor }`  
-- Funcionales / Constructoras: definidas como funciones para crear múltiples objetos  
+### Ventaja
+Excelente para crear colecciones con información relacionada e identificada por claves específicas.
 
-**Creación de instancias:** se usa `new` con funciones constructoras o clases.
+### Características de los Objetos
+- **Pares Clave/Valor**: Cada dato está asociado a una clave única llamada propiedad.  
+- **Dinamismo**: Los objetos pueden expandirse o modificarse en tiempo de ejecución.  
+- **Métodos**: Los objetos pueden incluir funciones como valor de sus propiedades.  
 
----
+### Objetos Literales
+- **Definición**: Se declaran asignando a una variable un par de llaves `{}` que contienen propiedades.  
+- **Acceso**: Se accede a las propiedades usando el `.` (punto) o corchetes `['propiedad']`.  
 
-## 🏗 Clases
-
-Las clases en JavaScript ofrecen una sintaxis más clara para POO.  
-Incluyen el `constructor()` y permiten herencia con `extends`.
-
-```js
-class Auto {
-  constructor(marca, modelo, año, color){
-    this.marca = marca;
-    this.modelo = modelo;
-    this.año = año;
-    this.color = color;
-  }
-}
-const auto1 = new Auto('Toyota', 'Corolla', 2020, 'Rojo');
-```
-
-POO permite definir **propiedades y métodos** y crear subclases que heredan comportamientos.
+### Objetos Funcionales
+- Se declaran como una **función tradicional** en JavaScript, actuando como un molde para crear múltiples objetos.  
+- **Función Constructora**: Utiliza la palabra reservada `this` para definir propiedades y métodos.  
+- **Creación de Instancias**: Se usan con la palabra reservada `new` para crear nuevos objetos basados en el molde.  
 
 ---
 
-## 💡 Operadores Avanzados
+## Clases en JavaScript
 
-**Destructuring**: extrae valores de arrays u objetos asignándolos a variables:
+Las clases en JavaScript ofrecen una sintaxis más clara para la **programación orientada a objetos (POO)**.
 
-```js
-const { color, marca } = auto1;
-```
+### Definición de Clase
+- Usa la palabra reservada `class` y el método `constructor()`.  
+- **Herencia**: Permite extender clases con `extends`.  
+- **Instanciación**: Crea objetos con `new`.  
 
-**Spread operator**: combina o copia arrays y objetos sin modificar el original:
-
-```js
-const autosNuevos = [...autosExistentes];
-const autoClonado = {...auto1};
-```
-
----
-
-## 📦 Módulos y gestores de paquetes
-
-**NPM (Node Package Manager):**  
-- Instalar paquetes: `npm install paquete`  
-- Crear scripts: `"start": "node index.js"` en package.json  
-- Gestionar dependencias y versiones  
-
-**Módulos:**  
-- Nativos: `fs`, `path`, `http`  
-- De terceros: instalados con NPM  
-- `__dirname` para rutas absolutas y manejo de archivos del servidor
+### Programación Orientada a Objetos (POO)
+JavaScript es un lenguaje **multiparadigma**, soporta programación imperativa, funcional y orientada a objetos.  
+La POO se basa en la creación de **Clases** que definen propiedades y métodos que pueden ser heredados.  
+Los objetos funcionales son una representación básica de lo que las clases pueden lograr.  
 
 ---
 
-## 📝 Ejercicios Practicos
+## Operadores Avanzados
 
-### Misión 1 - Array de automóviles
+### Destructuring Operator `{}`
+Permite extraer valores de arrays o propiedades de objetos y asignarlos a variables.
 
-Crear un array de 10 objetos `autos`, con propiedades: `marca`, `modelo`, `año`, `color`.  
-Recorrerlo e imprimir por consola los autos cuyo año sea mayor a 2018.
+- **Arrays**: Desempaqueta valores por posición.  
+- **Objetos**: Extrae propiedades y las asigna a variables con el mismo nombre.  
 
-```js
-const autos = [
-  {marca:'Toyota', modelo:'Corolla', año:2019, color:'Rojo'},
-  {marca:'Ford', modelo:'Fiesta', año:2017, color:'Azul'},
-  // ...8 autos mas
-];
+### Spread Operator `...`
+Permite copiar o combinar arrays y objetos.
 
-autos.filter(auto => auto.año > 2018).forEach(auto => console.log(auto));
-```
-
-### Misión 2 - Función con destructuring y filtrado por color
-
-Crear una función que recorra el array, use destructuring para obtener el color, y devuelva cuántos autos tienen un color específico:
-
-```js
-function contarPorColor(autos, colorBuscado){
-  let count = 0;
-  autos.forEach(({color}) => { if(color === colorBuscado) count++; });
-  console.log(`Cantidad de autos color ${colorBuscado}: ${count}`);
-}
-contarPorColor(autos, 'Rojo');
-```
+- **En Arrays**: Combina o clona arrays sin modificar el original.  
+- **En Objetos**: Copia o combina propiedades de varios objetos.  
 
 ---
 
-## 📚 Recursos Adicionales
+## Próximos Pasos y Recursos
 
-- [MDN Web Docs - Objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects)  
-- [Guía funciones constructoras](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)  
-- [Documentación sobre Clases en JS](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)  
+### Próximos Temas
+- Módulos y librerías  
+- Manejo de Promesas  
+- Servidores Web  
+
+### Recursos Adicionales
+- Documentación [MDN sobre Objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object)  
+- Guía sobre funciones constructoras  
+- Documentación sobre Clases en JavaScript  
+
+---
+
+## Ejercicio Práctico - Storytelling
+
+Matías y Sabrina han preparado un nuevo reto para evaluar tus habilidades.
+
+> “Imagina que estás organizando información sobre una flota de vehículos”, dice Sabrina.  
+> “Queremos ver cómo manejas datos más estructurados”.  
+
+### Misión 1
+1. Crea un **array con 10 objetos**, donde cada objeto represente un automóvil con:  
+   - Marca  
+   - Modelo  
+   - Año  
+   - Color  
+2. Usa un **método de array** para recorrer la lista e imprime por consola todos los datos de los automóviles cuyo año sea mayor a 2018.  
+
+Matías añade:  
+> “Queremos que veas esto como un ejercicio para prepararte para trabajar con datos reales en el futuro”.  
+
+---
+
+### Misión 2
+Impresionados con tu avance, Matías y Sabrina suben un poco la dificultad.  
+
+Sabrina te plantea:  
+> “Queremos saber si puedes analizar la información de forma específica. Aquí tienes tu próximo desafío”.  
+
+- Crea una **función** que recorra el array de automóviles.  
+- Usa **destructuring** dentro de la función para obtener el color de cada automóvil.  
+- La función debe aceptar un color como parámetro y devolver por consola **cuántos automóviles tienen ese color**.  
 
 ---
