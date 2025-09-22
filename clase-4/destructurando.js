@@ -28,4 +28,14 @@ const copiaPersona = { ...persona };
 const numeros = [1, 2, 3, 4, 5];
 
 // Extraer valores por posicion
-const [primero, segundo] = numeros
+const [primero, segundo] = numeros;
+
+// Saltar elementos
+const [, , tercero] = numeros;
+
+// Spreads [...]
+const numeros1 = [1, 2, 3];
+const numeros2 = [4, 5, 6];
+
+// Combinar arrays usando spread
+const todosLosNumeros = [...numeros1, ...numeros2];
