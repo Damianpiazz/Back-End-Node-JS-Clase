@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "a823f59e-4934-42ef-bbe7-720f6f805634",
+		"name": "Backend Node Clase 10",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46693522"
+	},
+	"item": [
+		{
+			"name": "HTML",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}HTML",
+					"host": [
+						"{{url}}HTML"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}JSON",
+					"host": [
+						"{{url}}JSON"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
