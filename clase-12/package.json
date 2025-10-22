@@ -1,0 +1,18 @@
+{
+  "name": "clase-12",
+  "version": "1.0.0",
+  "description": "-   Modelando una API Rest\r -   API Rest\r -   Estructura de archivos\r -   Capas de la aplicación\r -   División de responsabilidades\r -   REQUEST & RESPONSE\r -   Rutas\r -   CORS: solicitudes entre dominios\r -   Error Handle (404)\r -   Rutas parametrizadas\r -   POSTMAN",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
